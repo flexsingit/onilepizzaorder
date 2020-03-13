@@ -1,0 +1,750 @@
+@media screen and (max-width: 1199px) {
+    .pt40 {
+        padding-top: 30px;
+    }
+    h1, .layout1 h1 span {
+        font-size: 50px;
+    }
+    .small_section h5{
+        font-size: 14px;
+    }
+    .mt50 {
+        margin-top: 25px;
+    }
+    section{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .our_story p{
+        margin: 0;
+    }
+    .panel-body ul li {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .panel-body ul li:last-child {
+        padding-bottom: 30px;
+    }
+    .panel-body ul li:first-child {
+        padding-top: 30px;
+    }
+   .blue_dotted_border h4 {
+        margin-top: 20px;
+    }
+    .space_left {
+        margin-left: 0;
+    }
+
+    .space_right {
+        margin-right: -2%;
+    }
+    .home_team_detail h5 {
+        margin-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .member_des:after {
+        margin: 30px auto 0 auto;
+    }
+
+    .footer .fa {
+        margin-right: -1px;
+    }
+
+    .footer h5 {
+        font-size: 14px;
+    }
+    .blog_sub_header {
+        font-size: 14px;
+    }
+
+    .progress {
+        margin-bottom: 15px;
+    }
+    .sub_header_title:after {
+        top: 65%;
+    }
+
+    .expert_detail img {
+        margin: 15px auto;
+    }
+
+    .progress_bar {
+        margin: 15px 0 15px 0;
+    }
+
+    .expert_detail p {
+        padding-bottom: 15px;
+    }
+    .make_an_appointment h3 {
+        margin-bottom: 30px;
+    }
+    .send_btn {
+        margin-top: 30px;
+    }
+    .contact .form-control {
+        margin-top: 30px;
+    }
+    .contact .form-group i {
+        top: 43px;
+    }
+    .make_an_appointment .form-group {
+        margin-bottom: 20px;
+    }
+    .submit_btn {
+        margin-top: 0;
+    }
+    .feature_blog h5 {
+        margin-bottom: 7px;
+    }
+    .feature_blog h3 {
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+    .feature_blog_details h3{
+        font-size: 17px;
+    }
+    .feature_blog_details p,.post_detail p{
+        font-size: 14px;
+    }
+    .post_detail h4{
+        font-size: 15px;
+    }
+    .blogs .blog_right h3 {
+        margin: 0 0 20px 0;
+    }
+    .blogs .mb40{
+        margin-bottom: 20px;
+    }
+    .blog_categories h5 {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .feature_blog {
+        margin: 40px 0;
+    }
+    .blog_comment {
+        margin-top: 15px;
+    }
+    .feature_blog p {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    h1,.layout1 h1 span {
+        font-size: 40px;
+    }
+    .home p {
+       margin: 35px auto;
+    }
+    h3{
+        margin-bottom: 10px;
+    }
+    h3,.layout2 p{
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .layout2 p{
+        margin-bottom: 30px;
+    }
+    .layout7-store-btn .img-home-store {
+        margin-top: 25px;
+    }
+    .download-form .input-group-addon{
+        padding: 0;
+    }
+    .home-6-slider .text-left,.home-5-slider .text-left{
+        text-align: center;
+    }
+    .home-bottom-bar{
+        margin: 30px auto 15px;
+    }
+    .small_section .container{
+        width: 100%
+    }
+    .appointment_btn .common-btn{
+            float: none !important;
+    }
+    .service_price_section h4{
+        margin-top: 5px;
+    }
+    .common-btn{
+        font-size: 14px;
+        padding: 7px 17px;
+    }
+    .mt30{
+        margin-top: 15px;
+    }
+    .navbar-custom a#logo {
+        top: 0 !important;
+        left: 51%;
+    }
+
+    .nav-justified {
+        margin-top: 5px;
+    }
+    .nav > li > a {
+        padding: 21px 5px;
+    }
+    .mt100 {
+        margin-top: 67px;
+    }
+    .navbar-brand img{
+        width: 140px;
+    }
+    .navbar-custom {
+        padding: 0 !important;
+    }
+    .panel-body ul li {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .panel-body ul li:last-child {
+        padding-bottom: 20px;
+    }
+    .panel-body ul li:first-child {
+        padding-top: 20px;
+    }
+      h2,.bold_heading_font {
+        font-size: 35px;
+    }
+    .title:after {
+        margin: 45px auto 0 auto;
+    }
+    .member_details .pull-left, .member_details .pull-right {
+        float: none !important;
+        text-align: center;
+    }
+
+    .member_details .pull-right {
+        padding-top: 5px;
+    }
+
+    .price_list_title {
+        margin: 10px 0;
+    }
+    .appointment_info i {
+        padding-left: 0;
+    }
+    .send_btn {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .send_btn .pull-right {
+        float: none !important;
+    }
+
+    .appointment_info {
+        display: block;
+        text-align: center;
+    }
+
+    .form-control {
+        height: 35px;
+    }
+    .leave_reply .form-control, .contact .form-control,.send_btn {
+        margin-top: 25px;
+    }
+
+    .leave_reply .form-group i, .contact .form-group i {
+        top: 33px;
+    }
+
+    .blue_dotted_border h4 {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .mt50 {
+        margin-top: 20px;
+    }
+
+    .make_an_appointment .form-group i {
+        top: 9px;
+        font-size: 14px;
+    }
+    p {
+        font-size: 14px;
+    }
+
+    .blogs .blog_right h3 {
+        margin: 0 0 25px 0;
+    }
+
+    .instragram_img li img {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+    }
+
+    .video_detail {
+        margin: 10px 0 0 5px;
+    }
+
+    .mb40 {
+        margin-bottom: 20px;
+    }
+
+    .blog_categories h5 {
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+    }
+
+    .post_detail p, .post_detail h4, .post_detail h6 {
+        margin-left: 0;
+    }
+
+    .tweet p {
+        font-size: 13px;
+    }
+
+    .blog_comment {
+        margin-top: 0;
+    }
+
+    .comment_name_date {
+        margin-bottom: 20px;
+    }
+
+    .blog_reply {
+        margin-top: 20px;
+    }
+
+    .blog_contain p {
+        margin-bottom: 15px;
+    }
+    .appointment_info h3{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .appointment .appointment_btn {
+        margin: 5px auto;
+    }
+    .footer h3 {
+        margin-bottom: 15px;
+        margin-top: 30px;
+    }
+    .subscribe_btn {
+        margin: 15px 0;
+    }
+    .recent_post img {
+        height: auto;
+        width: auto;
+    }
+    .recent_post h4 {
+        margin-top: 10px;
+    }
+    .feature_blog {
+        margin: 20px 0;
+    }
+    .expert_right h3 {
+        margin-bottom: 10px;
+    }
+    .treatment {
+        padding: 5px 15px;
+    }
+    .treatment h5{
+        font-size: 14px;
+    }
+    .footer_header:after {
+    top: 30px;
+    }
+    .footer li img {
+        width: 88px;
+        height: 88px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .home-content .common-btn:first-child{
+        padding: 8px 20px;
+    }
+    .home-content .text-left{
+        text-align: center;
+    }
+    .home_team_detail {
+        padding-top: 10px;
+    }
+    .navbar-custom {
+        padding: 5px 0 !important;
+    }
+
+    .navbar-custom a#logo {
+        top: -3px !important;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+    .our_services .mt30{
+        margin-bottom: 40px;
+    }
+    .nav-justified {
+        margin-top: 0;
+    }
+
+    .space_right {
+        margin-right: 0;
+    }
+     .grid .grid-item:last-child{
+            margin-bottom: 0;
+        }
+    .space_left {
+        margin-left: 0;
+    }
+    .our_story .sub_header_title:after {
+        top: 60%;
+    }
+    .navbar-nav {
+        margin: 0;
+    }
+    .btn_tab {
+        padding: 4px 13px;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    .gallery_filters_group ul {
+        margin-bottom: 20px;
+    }
+    .team .item {
+        display: block;
+    }
+
+    .read_more {
+        margin-bottom: 10px;
+    }
+
+    .member_details h5 {
+        font-size: 15px !important;
+    }
+
+    .member_details h4 {
+        font-size: 16px !important;
+    }
+    .owl-dots .owl-dot {
+        margin: 25px 15px 0 0;
+    }
+
+    .home .mt50 {
+        margin-top: 0;
+    }
+    .make_an_appointment .form-control {
+        padding: 5px;
+    }
+    .expert h3 {
+        margin-top: 25px;
+    }
+    .expert_detail img {
+        margin: 25px auto;
+    }
+    .recent_post .row {
+        display: flex;
+        align-items: center;
+    }
+    .home_team_detail{
+        text-align: center;
+    }
+    .member_des:after{
+        left: 0;
+        right: 0;
+    }
+    .our_story p{
+        text-align: center;
+    }
+    section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .btn_subscribe{
+        margin-top: 20px;
+    }
+    .progress {
+        margin-bottom: 25px;
+    }
+    .expert_detail p {
+        text-align: center;
+    }
+    .progress_bar {
+        margin: 25px 0 25px 0;
+    }
+    .gallery_filters_group ul li {
+        margin-left: 2px;
+    }
+    section h2 {
+        margin-bottom: 50px;
+    }
+    /*.btn_tab {*/
+        /*background: none;*/
+        /*color: #0095f4;*/
+        /*font-size: 16px;*/
+        /*opacity:0.5;*/
+        /*border: none;*/
+    /*}*/
+    /*.btn_tab:hover, .current, .current:focus{*/
+        /*color: #0095f4;*/
+        /*opacity: 1;*/
+        /*background: none;*/
+        /*border: none;*/
+    /*}*/
+     .appoin_date {
+        top: 10px !important;
+    }
+    .footer_about h3:first-child{
+        margin-top: 0;
+    }
+    .our_services .row:last-child .col-xs-10:last-child .mt30 {
+        margin-bottom: 0;
+    }
+    .footer_menu ul:first-child li:first-child h5{
+        margin-top: 0;
+    }
+     .footer_menu ul:last-child li:last-child h5{
+        margin-bottom: 0;
+    }
+    .branches h3{
+        margin-top: 35px;
+        margin-bottom: 5px;
+    }
+    .panel-body  ul li{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.panel-body  ul li:first-child{
+    padding-top: 40px;
+}
+.panel-body  ul li:last-child{
+    padding-bottom: 40px;
+}
+.layout-7 .download-btn{
+    margin-top: 25px;
+}
+}
+
+@media (max-width: 600px) {
+    .heading .page_title,.heading .page_breadcrumb,.breadcrumb {
+        float: none !important;
+        text-align:center;
+    }
+    .heading .valign-wrapper {
+        display: block;
+    }
+    .heading div{
+        width: auto;
+    }
+    h3,.layout2 p {
+        font-size: 15px;
+    }
+    .appointment {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    h1,.layout1 h1 span {
+        font-size: 30px;
+    }
+    h2,.bold_heading_font {
+        font-size: 30px;
+    }
+    .footer h3 {
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .massage_bg, .mackup_bg, .spa_bg {
+        background: none;
+    }
+    .price_list{
+        margin: 0;
+        width: 100%;
+    }
+    .progress {
+        margin-bottom: 20px;
+    }
+    .price_detail p{
+        margin-bottom: 0;
+    }
+    .price_list h3{
+        margin-top: 0;
+    }
+    .footer_header:after {
+    top: 24px;
+}
+    .owl-prev, .owl-next {
+        height: 35px;
+        width: 35px;
+        font-size: 22px;
+    }
+    .owl-prev i, .owl-next i{
+        vertical-align: 3px;
+    }
+
+}
+
+@media (max-width: 420px) {
+    h1 {
+        font-size: 24px;
+    }
+    .home-form-control {
+        padding: 22px 15px 0;
+    }
+    .expert_right .sub_header_title:after {
+    top: 20%;
+    }
+    .common-btn {
+        margin-bottom: 20px;
+    }
+    .blog_comment_icons i {
+        margin-right: 15px;
+    }
+    .treatment {
+        padding: 5px 5px;
+    }
+    .treatment h5 {
+        font-size: 12px;
+    }
+    .color_h6 {
+    padding-top: 5px;
+    }
+    .treatments {
+    margin-top: 15px;
+    }
+    .home_btn a:first-child {
+        margin-right: 8px;
+        }
+    .small_section span{
+        width: 25px;
+        margin: 7px 20px 8px 0;
+    }
+    .small_section h3 {
+        font-size: 14px;
+    }
+    .small_section h5 {
+        font-size: 12px;
+    }
+    h2, .bold_heading_font {
+        font-size: 23px;
+    }
+    .title:after {
+        margin: 30px auto 0 auto;
+    }
+    .form-control{
+        font-size: 12px
+    }
+    .panel-body ul li {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .panel-body ul li:last-child {
+        padding-bottom: 30px;
+    }
+    .panel-body ul li:first-child {
+        padding-top: 30px;
+    }
+   .leave_reply .form-control, .contact .form-control, .send_btn {
+        margin-top: 15px;
+    }
+    .leave_reply .form-group i, .contact .form-group i {
+        top: 25px;
+        right: 25px;
+    }
+    .panel h3{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .pricing ul li {
+        font-size: 14px;
+    }
+    .footer h5 ,.footer p {
+        font-size: 13px;
+    }
+    .footer h5 {
+        margin: 5px 0 5px 20px;
+    }
+    .footer p {
+        margin: 0 0 5px;
+    }
+    ul {
+        margin-bottom: 5px;
+    }
+    footer ul {
+        margin-bottom: 0;
+    }
+    .subscribe_btn {
+        margin: 10px 0;
+    }
+    .follow_us{
+        margin-left: 0 !important;
+    }
+    .make_an_appointment .form-group i {
+        right: 20px;
+    }
+    .mrp {
+        margin: 10px auto;
+        width: 90px;
+        height: 90px;
+    }
+    .make_an_appointment .form-group {
+        margin-bottom: 15px;
+    }
+    .make_an_appointment h3 {
+        margin-bottom: 15px;
+    }
+    .service_description h3 {
+        margin-bottom: 10px;
+    }
+    .progress_bar div{
+        width: 100%;
+    }
+    .progress {
+        margin-bottom: 10px;
+    }
+    /*.grid .grid-item{
+        width: 100%;
+    }*/
+    .small_section img{
+        width:10%;
+    }
+    .grid .grid-item:nth-child(7) {
+        margin-bottom: 30px;
+    }
+}
+
+@media  (max-width: 1199px) and  (min-width: 768px){
+    .pricing .common-btn{
+        font-size: 15px;
+        padding: 7px 16px;
+    }
+    .panel-heading h3{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .member_details h5 {
+        font-size: 11px;
+    }
+
+    .member_details h4 {
+        font-size: 13px;
+    }
+    .mrp {
+        padding: 8px;
+        margin: 10px auto;
+        width: 70px;
+        height: 70px;
+    }
+    .pricing .mrp h3 {
+        font-size: 21px;
+    }
+}
+@media  (max-width: 992px) and  (min-width: 767px){
+    .pricing .mrp h5 {
+        font-size: 12px;
+    }
+    .panel-heading{
+        padding-top: 1px;
+        padding-bottom: 0;
+    }
+}
