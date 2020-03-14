@@ -11,6 +11,10 @@ class Tools {
     const GENDER_FEMALE = 2;
     const GENDER_BOTH = 3;
     const DATE_FORMAT_MONTH_NAME = 'j M Y';
+    const PENDING = 0;
+    const DELIVERD = 1;
+    const REJESTED = 2;
+    
    
 
     public function getActiveStatus() {
@@ -133,4 +137,34 @@ class Tools {
         public function getStorageUrl($subfolder = '') {
         return asset('storage/' . $subfolder) . '/';
     }
+
+       public function getPendingStatus() {
+        return self::PENDING;
+    }
+
+    public function getDeliverdStatus() {
+        return self::DELIVERD;
+    }
+
+    public function getRejectedStatus() {
+        return self::REJESTED;
+    }
+
+
+ public function getStatusChangeText($key = false) {
+        $arr = array(
+            $this->getPendingStatus() => 'Pending',
+            $this->getDeliverdStatus() => 'Deliverd',
+            $this->getRejectedStatus() => 'Rejected',
+        );
+
+        if ($key !== false) {
+            if (isset($arr[$key])) {
+                return $arr[$key];
+            } else {
+                return 'Unknown';
+            }
+        }
+        return $arr;
+    } 
 }
