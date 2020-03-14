@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\AdminController;
 
 class OrderManagementController extends AdminController {
 
+       /* Pizza Order Functionality */
+
     public function getPizzaOrder() {
         return $this->renderView("pizza.order.list");
     }
@@ -19,7 +21,7 @@ class OrderManagementController extends AdminController {
 
         $limit = $request->get('length');
 
-        $list =  \App\Model\Order\PizzaOrder::with('users');
+        $list =new  \App\Model\Order\PizzaOrder();
         $totalData = $list->count();
 
         $totalFiltered = $list->count();
@@ -37,7 +39,10 @@ class OrderManagementController extends AdminController {
 
             $data[] = array(
                 $row->id,
-                $row->users->first_name ." ".$row->users->last_name,
+                $row->first_name,
+                $row->last_name,
+                 $row->contact_number,
+                  $row->address,
                 $status,
                 \App\Facades\Tools::getFormattedDateMonthName($row->created_at),
                 $action,
@@ -84,8 +89,11 @@ class OrderManagementController extends AdminController {
             $data = $request->post();
            // dd($data);
             $rules = [
-                'user_id' => 'required',
-                'status' => 'required',
+                 'first_name' => 'required',
+                 'last_name' => 'required',
+                  'contact_number' => 'required|min:11|numeric',
+                   'address' => 'required',
+                     'status' => 'required',
                 
             ];
 
@@ -132,9 +140,9 @@ class OrderManagementController extends AdminController {
         return $this->renderView('pizza.order.form');
     }
 
-    
+    /*  Order Item Functionality */
 
-  public function getOrderItem() {
+    public function getOrderItem() {
         return $this->renderView("pizza.order_item.list");
     }
 
@@ -146,11 +154,7 @@ class OrderManagementController extends AdminController {
 
         $limit = $request->get('length');
 
-        $list =  \App\Model\Order\OrderItem::with(['orders' => function($q){
-        $q->with('users');
-        },'pizza_details' => function($qq){
-        $qq->with(['pizza_name','pizza_size']);
-        }]);
+        $list =  \App\Model\Order\OrderItem::with(['pizza_name','pizza_size','pizza_order']);
         $totalData = $list->count();
 
         $totalFiltered = $list->count();
@@ -170,9 +174,9 @@ class OrderManagementController extends AdminController {
             $data[] = array(
 
                 $row->id,
-                $row->orders->users->first_name . " " . $row->orders->users->first_name,
-                $row->pizza_details->pizza_name->name,
-                $row->pizza_details->pizza_size->name,
+                $row->pizza_order->first_name,
+                $row->pizza_name->name,
+                $row->pizza_size->name,
                 $row->amount,
                 $row->quantity,
                 $status,
@@ -199,7 +203,7 @@ class OrderManagementController extends AdminController {
     public function orderItemForm($id = 0) {
         $this->setPageTitle('Add/Edit Order Item');
 
-        $model = \App\Model\Pizza\PizzaCategory::find($id);
+        $model = \App\Model\Order\OrderItem::find($id);
         
         if ($id > 0) {
             if (!$model) {
@@ -209,7 +213,7 @@ class OrderManagementController extends AdminController {
             }
         } else {
 
-            $model = new \App\Model\Pizza\PizzaCategory();
+            $model = new \App\Model\Order\OrderItem();
         }
 
         $request = request();
@@ -222,7 +226,11 @@ class OrderManagementController extends AdminController {
            //dd($data);
             $rules = [
 
-                'name' => 'required|unique:pizza_categories,name,' . $model->id,
+                'pizza_order_id' => 'required',
+                'pizza_category_id' => 'required',
+                'pizza_type_id' => 'required',
+                'quantity' => 'required',
+                'amount' => 'required',
                 'status' => 'required',
                 
             ];
@@ -246,11 +254,11 @@ class OrderManagementController extends AdminController {
                             session()->put('msg_success', 'Pizza Category has been updated successfully');
                             $request->flash();
                             
-                            return redirect(\App\Facades\Tools::createdAdminEndUrl('pizza/category/form/'.$model->id));
+                            return redirect(\App\Facades\Tools::createdAdminEndUrl('pizza/order/item/form/'.$model->id));
                             exit;
                         } else {
                             session()->put('msg_success', 'New Pizza Type has been added successfully');
-                            return redirect(\App\Facades\Tools::createdAdminEndUrl('pizza/category/form'));
+                            return redirect(\App\Facades\Tools::createdAdminEndUrl('pizza/order/item/form'));
                             exit;
                         }
                     } else {
@@ -264,6 +272,19 @@ class OrderManagementController extends AdminController {
             }
             $request->flash();
         }
+
+         $pizza_order = \App\Model\Order\PizzaOrder::pluck('first_name','id')->all();
+
+
+         $pizza_type = \App\Model\Pizza\PizzaType::pluck('name','id')->all();
+
+         $pizza_category = \App\Model\Pizza\PizzaCategory::pluck('name','id')->all();
+
+        $this->page_vars['pizza_order'] = $pizza_order;
+
+         $this->page_vars['pizza_type'] = $pizza_type;
+
+        $this->page_vars['pizza_category'] = $pizza_category;
        
         $this->page_vars['model'] = $model;
 

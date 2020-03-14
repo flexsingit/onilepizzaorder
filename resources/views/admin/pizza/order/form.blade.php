@@ -43,17 +43,48 @@
                     <div class="box-body">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">User Id</label>
+                            <label class="col-sm-2 control-label">First Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="User Id" name="user_id" value="{{old('user_id',$model->user_id)}}" >
+                                <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{old('first_name',$model->first_name)}}" >
 
-                                @if ($errors && $errors->first('user_id'))
-                                <span class="input-error" style="color:red">{{$errors->first('user_id')}}</span>
+                                @if ($errors && $errors->first('first_name'))
+                                <span class="input-error" style="color:red">{{$errors->first('first_name')}}</span>
                                 @endif
                             </div>
                         </div>
 
-                      
+                      <div class="form-group">
+                            <label class="col-sm-2 control-label">Last Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="{{old('last_name',$model->last_name)}}" >
+
+                                @if ($errors && $errors->first('last_name'))
+                                <span class="input-error" style="color:red">{{$errors->first('last_name')}}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Contact Number</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="First Name" name="contact_number" value="{{old('contact_number',$model->contact_number)}}" >
+
+                                @if ($errors && $errors->first('contact_number'))
+                                <span class="input-error" style="color:red">{{$errors->first('contact_number')}}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" placeholder="Address" name="address">{{old('address',$model->address)}}</textarea>
+
+                                @if ($errors && $errors->first('address'))
+                                <span class="input-error" style="color:red">{{$errors->first('address')}}</span>
+                                @endif
+                            </div>
+                        </div>
 
 
                         <div class="form-group">
@@ -99,8 +130,11 @@
         $("#form").validate({
             rules: {
               
-                user_id: {required: !0},
-                status: {required: !0},
+                first_name: {required: !0},
+                  last_name: {required: !0},
+                    contact_number: {required: !0},
+                      address: {required: !0},
+                        status: {required: !0},
                
             }
 

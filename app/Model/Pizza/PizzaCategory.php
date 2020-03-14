@@ -10,17 +10,19 @@ class PizzaCategory extends Model {
 
     protected $appends = array('image_url');
 
+    /*Default Image Name*/
+
     const PLACEHOLDER_IMG = 'place_holder.jpg';
 
 
-  public  function pizza_type(){
-        return $this->hasOne(\App\Model\Pizza\PizzaType::class,'id','pizza_type_id');
-             }
 
+  /* Create Image Folder Name*/
 
     public static function getStorageFolderName() {
         return 'Pizza Category Image';
     }
+
+    /* Get Image */
 
     public function getImageUrlAttribute() {
 
@@ -36,6 +38,8 @@ class PizzaCategory extends Model {
         }
         return asset('images/' . self::PLACEHOLDER_IMG);
     }
+
+    /* Uplode Image */
 
     public function uploadImage() {
         if (!$this->exists) {

@@ -42,23 +42,45 @@
                 <form class="form-horizontal" id="form"  method="post" enctype="multipart/form-data" name="submit"> 
                     <div class="box-body">
                         {{csrf_field()}}
-                       
+
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Pizza Order Id</label>
+                            <label class="col-sm-2 control-label">User Name </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Pizza Order Id" name="pizza_order_id" value="{{old('pizza_order_id',$model->pizza_order_id)}}" >
+                                <select class="form-control" name="pizza_order_id">                                      
+                                    @foreach ($pizza_order as $key => $label)
+                                    <option value="{{$key}}" @if(old('pizza_order_id', $model->pizza_order_id) == $key && $model->pizza_order_id !='') selected="selected" @endif >{{__($label)}}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors && $errors->first('pizza_order_id'))
                                 <span class="input-error" style="color:red">{{$errors->first('pizza_order_id')}}</span>
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Pizza Detail Id</label>
+                       
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Pizza Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Pizza Amount Id" name="pizza_amount_id" value="{{old('pizza_amount_id',$model->pizza_amount_id)}}" >
-                                @if ($errors && $errors->first('quantity'))
-                                <span class="input-error" style="color:red">{{$errors->first('quantity')}}</span>
+                                <select class="form-control" name="pizza_category_id">                                      
+                                    @foreach ($pizza_category as $key => $label)
+                                    <option value="{{$key}}" @if(old('pizza_category_id', $model->pizza_category_id) == $key && $model->pizza_category_id !='') selected="selected" @endif >{{__($label)}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors && $errors->first('pizza_category_id'))
+                                <span class="input-error" style="color:red">{{$errors->first('pizza_category_id')}}</span>
+                                @endif
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Pizza Size</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="pizza_type_id">                                      
+                                    @foreach ($pizza_type as $key => $label)
+                                    <option value="{{$key}}" @if(old('pizza_type_id', $model->pizza_type_id) == $key && $model->pizza_type_id !='') selected="selected" @endif >{{__($label)}}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors && $errors->first('pizza_type_id'))
+                                <span class="input-error" style="color:red">{{$errors->first('pizza_type_id')}}</span>
                                 @endif
                             </div>
                         </div>
@@ -67,7 +89,7 @@
                          <div class="form-group">
                             <label class="col-sm-2 control-label">Quantity</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Amount" name="quantity" value="{{old('quantity',$model->quantity)}}" >
+                                <input type="text" class="form-control" placeholder="Quantity" name="quantity" value="{{old('quantity',$model->quantity)}}" >
                                 @if ($errors && $errors->first('quantity'))
                                 <span class="input-error" style="color:red">{{$errors->first('quantity')}}</span>
                                 @endif
@@ -129,7 +151,8 @@
         $("#form").validate({
             rules: {
                 pizza_order_id: {required: !0},
-                pizza_amount_id: {required: !0},
+                pizza_category_id: {required: !0},
+                pizza_type_id: {required: !0},
                 amount: {required: !0},
                 quantity: {required: !0},
                 status: {required: !0},
