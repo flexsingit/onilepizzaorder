@@ -56,6 +56,7 @@ Route::group(['prefix' => 'pizza'], function() {
                 Route::get('list/ajax', 'Admin\CategoryManagementController@pizzaCategoryAjax');
                 Route::get('change/status/{id}', 'Admin\CategoryManagementController@changeStatusPizzaCategory');
                 Route::match(['get', 'post'], 'form/{id?}', 'Admin\CategoryManagementController@pizzaCategoryForm');
+                Route::get('/delete/{id}', 'Admin\CategoryManagementController@deletePizzaCategory');
             });
 
             Route::group(['prefix' => 'amount'], function(){
@@ -79,6 +80,7 @@ Route::group(['prefix' => 'pizza'], function() {
                 Route::get('list/ajax', 'Admin\OrderManagementController@orderItemAjax');
                 Route::get('change/status/{id}', 'Admin\OrderManagementController@changeStatusOrderItem');
                 Route::match(['get', 'post'], 'form/{id?}', 'Admin\OrderManagementController@orderItemForm');
+                Route::get('/delete/{id}', 'Admin\OrderManagementController@deleteItem');
             });
 
          

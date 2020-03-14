@@ -161,6 +161,7 @@ class CategoryManagementController extends AdminController {
         return $this->renderView('pizza.type.form');
     }
 
+
       /* *************************
         Name :  Get Pizza Category 
         Description :Pizza Order allow to render View Page
@@ -204,7 +205,8 @@ class CategoryManagementController extends AdminController {
             } else {
                 $status = '<center><i id="status_' . $row->id . '" class="fa fa-close btn-xs btn-danger" style="cursor:pointer;" onclick ="ChangeStatus(' . $row->id . ')"></i></center>';
             }
-            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/category/form/' . $row->id) . '" class = "btn-xs btn-info" >Edit</a>';
+            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/category/form/' . $row->id) . '" class = "btn-xs btn-info" >Edit</a>'." " .
+            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/category/delete/' . $row->id) . '" class = "btn-xs btn-info" >Delete</a>';
 
             $data[] = array(
 
@@ -321,6 +323,20 @@ class CategoryManagementController extends AdminController {
         return $this->renderView('pizza.category.form');
     }
 
+
+    public function deletePizzaCategory($id=0){
+
+    if($id != 0){
+      // Delete
+      \App\Model\Pizza\PizzaCategory::deleteData($id);
+
+      Session()->flash('message','Delete successfully.');
+    }
+     return $this->renderView('pizza.category.list');
+  }
+
+
+
             /* *************************
         Name :  Get Pizza Amount 
         Description :Pizza Amount allow to render View Page
@@ -359,6 +375,12 @@ class CategoryManagementController extends AdminController {
         $data = array();
         foreach ($list as $row) {
 
+       /* if(isset($row->pizza_name)){
+            $pizza_name = $row->pizza_name->name;
+        }else{
+            $pizza_name = " ";
+        }*/
+
             if ($row->status == 1) {
                 $status = '<center><i id="status_' . $row->id . '" class="fa fa-check btn-xs btn-success" style="cursor:pointer;" onclick ="ChangeStatus(' . $row->id . ')"></i></center>';
             } else {
@@ -369,7 +391,7 @@ class CategoryManagementController extends AdminController {
             $data[] = array(
 
                 $row->id,
-                 $row->pizza_name->name,
+                 $row->pizza_name['name'],
                 $row->pizza_size->name,
                 $row->amount,
                 $status,

@@ -226,7 +226,9 @@ class OrderManagementController extends AdminController {
             } else {
                 $status = '<center><i id="status_' . $row->id . '" class="fa fa-close btn-xs btn-danger" style="cursor:pointer;" onclick ="ChangeStatus(' . $row->id . ')"></i></center>';
             }
-            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/item/form/' . $row->id) . '" class = "btn-xs btn-info" >Edit</a>';
+            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/item/form/' . $row->id) . '" class = "btn-xs btn-info" >Edit</a>'." " .
+            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/item/delete/' . $row->id) . '" class = "btn-xs btn-info" >Delete</a>';
+
 
             $data[] = array(
 
@@ -364,6 +366,15 @@ class OrderManagementController extends AdminController {
         return $this->renderView('pizza.order_item.form');
     }
 
+public function deleteItem($id=0){
 
+    if($id != 0){
+      // Delete
+      \App\Model\Order\OrderItem::deleteData($id);
+
+      Session()->flash('message','Delete successfully.');
+    }
+     return $this->renderView('pizza.order_item.list');
+  }
 
 }
