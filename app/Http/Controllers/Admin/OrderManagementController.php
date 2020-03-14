@@ -18,6 +18,7 @@ class OrderManagementController extends AdminController {
     ************************* */
 
     public function getPizzaOrder() {
+
         return $this->renderView("pizza.order.list");
     }
 
@@ -32,35 +33,52 @@ class OrderManagementController extends AdminController {
 
     public function pizzaOrderAjax(Request $request) {
 
+        $search_text = $request->get('search')['value'];
+       // dd($search_text);
+        $dt_columns = $request->get('columns');
+        //dd($dt_columns);
         $order = $request->get('order');
-       
+        $custom_filter = $request->get('custom_filter');
         $start = $request->get('start');
-
+//        dd($custom_filter);
         $limit = $request->get('length');
 
         $list =new  \App\Model\Order\PizzaOrder();
-        $totalData = $list->count();
+         $totalData = $list->count();
+        //dd($totalData);
 
+
+        if (!empty($search_text)) {
+
+            $list = $list->where('first_name', 'LIKE', '%' . $search_text . '%')
+            ->orWhere('id', 'LIKE', '%' . $search_text . '%');
+        }
         $totalFiltered = $list->count();
         $list = $list->skip($start)->take($limit);
         $list = $list->orderBy('id', 'ASC')->get();
 
         $data = array();
         foreach ($list as $row) {
-            if ($row->status == 1) {
-                $status = '<center><i id="status_' . $row->id . '" class="fa fa-check btn-xs btn-success" style="cursor:pointer;" onclick ="ChangeStatus(' . $row->id . ')"></i></center>';
-            } else {
-                $status = '<center><i id="status_' . $row->id . '" class="fa fa-close btn-xs btn-danger" style="cursor:pointer;" onclick ="ChangeStatus(' . $row->id . ')"></i></center>';
+            if($row->status == 0){
+            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/delete/' . $row->id) . '" class = "btn-xs btn-info" >Delete</a>';
+            }elseif($row->status == 2){
+                 $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/delete/' . $row->id) . '" class = "btn-xs btn-info" >Delete</a>';
+            }else{
+                $action = " ";
             }
-            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/form/' . $row->id) . '" class = "btn-xs btn-info" >Edit</a>';
 
+            $action = '<a href="' . \App\Facades\Tools::createdAdminEndUrl('pizza/order/form/' . $row->id) . '" class = "btn-xs btn-info" >Edit</a>'
+            ." " .$action;
+           
+         
             $data[] = array(
+
                 $row->id,
                 $row->first_name,
                 $row->last_name,
                  $row->contact_number,
                   $row->address,
-                $status,
+                  \App\Facades\Tools::getStatusChangeText($row->status),
                 \App\Facades\Tools::getFormattedDateMonthName($row->created_at),
                 $action,
             );
@@ -168,11 +186,11 @@ class OrderManagementController extends AdminController {
 
        $pizza_type = \App\Model\Pizza\PizzaType::pluck('name','id')->all();
 
+
          $pizza_category = \App\Model\Pizza\PizzaCategory::pluck('name','id')->all();
 
-      
 
-         $this->page_vars['pizza_type'] = $pizza_type;
+          $this->page_vars['pizza_type'] = $pizza_type;
 
         $this->page_vars['pizza_category'] = $pizza_category;
 
@@ -180,6 +198,17 @@ class OrderManagementController extends AdminController {
 
         return $this->renderView('pizza.order.form');
     }
+
+     public function deletePizzaOrder($id=0){
+
+    if($id != 0){
+      // Delete
+      \App\Model\Order\PizzaOrder::deleteData($id);
+
+      Session()->flash('message','Delete successfully.');
+    }
+     return $this->renderView('pizza.order.list');
+  }
 
 
         /* *************************
@@ -233,7 +262,7 @@ class OrderManagementController extends AdminController {
             $data[] = array(
 
                 $row->id,
-                $row->pizza_order->first_name,
+                $row->pizza_order['first_name'],
                 $row->pizza_name->name,
                 $row->pizza_size->name,
              //   $row->amount,

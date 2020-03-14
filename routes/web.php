@@ -73,6 +73,7 @@ Route::group(['prefix' => 'pizza'], function() {
                 Route::get('list/ajax', 'Admin\OrderManagementController@pizzaOrderAjax');
                 Route::get('change/status/{id}', 'Admin\OrderManagementController@changeStatusPizzaOrder');
                 Route::match(['get', 'post'], 'form/{id?}', 'Admin\OrderManagementController@pizzaOrderForm');
+               Route::get('/delete/{id}', 'Admin\OrderManagementController@deletePizzaOrder');
           
 
             Route::group(['prefix' => 'item'], function() {
@@ -80,7 +81,7 @@ Route::group(['prefix' => 'pizza'], function() {
                 Route::get('list/ajax', 'Admin\OrderManagementController@orderItemAjax');
                 Route::get('change/status/{id}', 'Admin\OrderManagementController@changeStatusOrderItem');
                 Route::match(['get', 'post'], 'form/{id?}', 'Admin\OrderManagementController@orderItemForm');
-                Route::get('/delete/{id}', 'Admin\OrderManagementController@deleteItem');
+                Route::get('delete/{id}', 'Admin\OrderManagementController@deleteItem');
             });
 
          

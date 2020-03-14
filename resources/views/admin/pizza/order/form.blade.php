@@ -91,7 +91,7 @@
                             <label class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="status">                                      
-                                    @foreach (\App\Facades\Tools::getStatusesText() as $key => $label)
+                                    @foreach (\App\Facades\Tools::getStatusChangeText() as $key => $label)
                                     <option value="{{$key}}" @if(old('status', $model->status) == $key && $model->status !='') selected="selected" @endif >{{__($label)}}</option>
                                     @endforeach
                                 </select>
