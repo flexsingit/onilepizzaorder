@@ -12,7 +12,7 @@ class PizzaCategory extends Model {
 
     /*Default Image Name*/
 
-    const PLACEHOLDER_IMG = 'place_holder.jpg';
+    const PLACEHOLDER_IMG = 'pizza_holder.jpg';
 
  /* *************************
         Name :   Pizza Category 
@@ -23,7 +23,7 @@ class PizzaCategory extends Model {
   /* Create Image Folder Name*/
 
     public static function getStorageFolderName() {
-        return 'Pizza Category Image';
+        return 'pizza_category_image';
     }
 
     /* Get Image */
@@ -87,5 +87,12 @@ class PizzaCategory extends Model {
             //print_r($errors);die;
         }
     }
+
+
+      public static function deleteData($id){
+   
+               return  \App\Model\Pizza\PizzaCategory::where('id', '=', $id)->delete();
+   
+  }
 
 }

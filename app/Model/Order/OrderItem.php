@@ -44,4 +44,11 @@ class OrderItem extends Model {
              return $this->hasOne(\App\Model\Order\PizzaOrder::class,'id','pizza_order_id');
              }
 
+
+             public static function deleteData($id){
+   
+               return  \App\Model\Order\OrderItem::where('id', '=', $id)->delete();
+   
+  }
+
 }
