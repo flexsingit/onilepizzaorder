@@ -14,7 +14,11 @@ class PizzaCategory extends Model {
 
     const PLACEHOLDER_IMG = 'place_holder.jpg';
 
-
+ /* *************************
+        Name :   Pizza Category 
+        Description : This model class allow access to some action
+        Author : Gyanendra Singh
+       ************************* */
 
   /* Create Image Folder Name*/
 

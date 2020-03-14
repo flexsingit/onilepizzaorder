@@ -31,14 +31,14 @@
                                 <th>Pizza Name </th>
                                 <th>Pizza Size </th>
                                 <th>Quantity</th>
-                                 <th>Amount</th>
+                               <!--  <th>Amount</th> --> 
                                 <th style="text-align:center;"> Status </th>
                                 <th> Created At </th>
                                 <th> Action </th>
                             </tr>
                         </thead>
                         <tbody id="datatable-list-body">
-                            <tr class="empty_row"><td colspan="9" class="text-center"><span class="text-danger"><b>No Record Found</b></span></td></tr>
+                            <tr class="empty_row"><td colspan="8" class="text-center"><span class="text-danger"><b>No Record Found</b></span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -59,7 +59,7 @@
 
         table_id: list_table_id,
         url: "{{\App\Facades\Tools::createdAdminEndUrl('pizza/order/item/list/ajax')}}",
-        number_of_columns: 9,
+        number_of_columns: 8,
         searching: true,
         columnDefs: [
             {name: 'id', targets: 0},
@@ -67,10 +67,10 @@
             {name: 'pizza_category_id', targets: 2},
             {name: 'pizza_type_id', targets: 3},
             {name: 'quantity', targets: 4},
-            {name: 'amount', targets: 5},
-            {name: 'status', targets: 6},
-            {name: 'created_at', targets: 7},
-            {name: 'action', targets: 8}
+          //  {name: 'amount', targets: 5},
+            {name: 'status', targets: 5},
+            {name: 'created_at', targets: 6},
+            {name: 'action', targets: 7}
         ],
         order: [[0, "DESC"]]
     });

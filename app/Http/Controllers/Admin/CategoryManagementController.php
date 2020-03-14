@@ -7,9 +7,26 @@ use App\Http\Controllers\Admin\AdminController;
 
 class CategoryManagementController extends AdminController {
 
+
+        /* *************************
+        Name :  Get Pizza Type 
+        Description :Pizza type allow to render View Page
+        Author : Gyanendra Singh
+        @params : N/A
+        Return :   Render List page 
+         ************************* */
+
     public function getPizzaType() {
         return $this->renderView("pizza.type.list");
     }
+
+
+    /* *************************
+        Name :  Pizza Type Ajax
+        Description :Type Order allow to access some Pizza Type List of data
+        @params : Yes
+        Return :  responce
+    ************************* */
 
     public function pizzaTypeAjax(Request $request) {
 
@@ -54,10 +71,26 @@ class CategoryManagementController extends AdminController {
         return response()->json($json_data, 200);
     }
 
+     /* *************************
+        Name :  Order Type
+        Description :Pizza Type allow to change Pizza type Status
+        @params : Yes
+        Return :  status
+    ************************* */
+
+
     public function changeStatusPizzaType ($id) {
         $object = \App\Model\Pizza\PizzaType::find($id);
         return \App\Facades\Tools::changeStatus($object);
     }
+
+
+/* *************************
+        Name :   Pizza Type Form
+        Description :  Pizza Type Form allow to Create & Update Form
+        @params : Yes
+        Return :  Render form page To Following data
+    ************************* */
 
     public function pizzaTypeForm($id = 0) {
         $this->setPageTitle('Add/Edit  Pizza Type');
@@ -88,8 +121,6 @@ class CategoryManagementController extends AdminController {
                 'status' => 'required',
                 
             ];
-
-           
 
 
             $validator = \Illuminate\Support\Facades\Validator::make($data, $rules);
@@ -130,11 +161,25 @@ class CategoryManagementController extends AdminController {
         return $this->renderView('pizza.type.form');
     }
 
-    
+      /* *************************
+        Name :  Get Pizza Category 
+        Description :Pizza Order allow to render View Page
+        @params : N/A
+        Return :   Render List page 
+    ************************* */
 
   public function getPizzaCategory() {
         return $this->renderView("pizza.category.list");
     }
+
+
+        /* *************************
+        Name :  Pizza Category Ajax
+        Description :Pizza Category allow to access some Pizza Category List of data
+        @params : Yes
+        @params : Yes
+        Return :  responce
+    ************************* */ 
 
     public function pizzaCategoryAjax(Request $request) {
 
@@ -183,10 +228,24 @@ class CategoryManagementController extends AdminController {
         return response()->json($json_data, 200);
     }
 
+     /* *************************
+        Name :  Pizza Category 
+        Description :Pizza Category allow to change Pizza Category Status
+        @params : Yes
+        Return : status
+    ************************* */
+
     public function changeStatusPizzaCategory ($id) {
         $object = \App\Model\Pizza\PizzaCategory::find($id);
         return \App\Facades\Tools::changeStatus($object);
     }
+
+     /* *************************
+        Name :  Pizza Category Form
+        Description :Pizza Category Form allow to Create & Update Form
+        @params : Yes
+        Return :  Render form page To Following data
+    ************************* */
 
     public function pizzaCategoryForm($id = 0) {
         $this->setPageTitle('Add/Edit  Pizza Category');
@@ -262,9 +321,25 @@ class CategoryManagementController extends AdminController {
         return $this->renderView('pizza.category.form');
     }
 
+            /* *************************
+        Name :  Get Pizza Amount 
+        Description :Pizza Amount allow to render View Page
+        @params : N/A
+        Return :   Render List page 
+    ************************* */
+
  public function getPizzaAmount() {
         return $this->renderView("pizza.amount.list");
     }
+
+
+        /* *************************
+        Name :  Pizza Amount Ajax
+        Description :Pizza amount allow to access some Pizza amount List of data
+        @params : Yes
+        @params : Yes
+        Return :  responce
+    ************************* */
 
     public function pizzaAmountAjax(Request $request) {
 
@@ -313,11 +388,24 @@ class CategoryManagementController extends AdminController {
         return response()->json($json_data, 200);
     }
 
+   /* *************************
+        Name :  Pizza Amount 
+        Description :Pizza amount allow to change Pizza amount Status
+        @params : Yes
+        Return : status
+    ************************* */
+
     public function changeStatusPizzaAmount ($id) {
         $object = \App\Model\Pizza\PizzaAmount::find($id);
         return \App\Facades\Tools::changeStatus($object);
     }
 
+ /* *************************
+        Name :  Pizza Amount Form
+        Description :Pizza Amount Form allow to Create & Update Form
+        @params : Yes
+        Return :  Render form page To Following data
+    ************************* */ 
     public function pizzaAmountForm($id = 0) {
         $this->setPageTitle('Add/Edit  Pizza Amount');
 

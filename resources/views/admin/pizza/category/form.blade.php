@@ -69,7 +69,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" placeholder="Description" name="description" value="{{old('description',$model->description)}}"></textarea>
+                                <textarea class="form-control" placeholder="Description" name="description" value="{{old('description',$model->description)}}">{{old('description',$model->description)}}</textarea>
                                 @if ($errors && $errors->first('description'))
                                 <span class="input-error" style="color:red">{{$errors->first('description')}}</span>
                                 @endif

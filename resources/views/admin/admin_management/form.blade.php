@@ -5,9 +5,7 @@
 <section class="content-header">
     <h1>
         @if(isset($model->first_name)) 
-        {{'Edit Admin - ' . $model['first_name']." ".$model['last_name']}}<button type="button" class="btn btn-info center-block"  data-toggle="modal" data-target="#change_password">
-            Change Password
-        </button>
+        {{'Edit Admin - ' . $model['first_name']." ".$model['last_name']}}
         @else
         {{'Add Admin'}}
         @endif
@@ -165,55 +163,7 @@
         </div>
         <!-- /.box -->
     </div>
-    <div class="modal fade" id="change_password">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Change Password</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="" id="change_password_form">
-                        <div class="box-body">
-                            <input type="hidden" name="user_id" value="{{$model->id}}" />
-                                
-                            <div class="form-group">
-                                <label for="current_password" class="col-sm-2 control-label">Current Password</label>
-
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="current_password" name="current_password" placeholder="Current Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="new_password" class="col-sm-2 control-label">New Password</label>
-
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="new_password" id="new_password" placeholder="New Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm_password" class="col-sm-2 control-label">Confirm Password</label>
-
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Update Password</button>
-                        </div>
-                    </form>
-
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+   
 </section>
 
 @stop
@@ -234,15 +184,7 @@
             }
 
         });
-        $("#change_password_form").validate({
-            rules: {
-                current_password: {required: !0},
-                new_password: {required: !0,minlength: 5},
-                confirm_password: {required: !0,equalTo: "#new_password"},
-                
-            }
-
-        });
+        
     });
     $(document).ready(function () {
         $("#image").change(function () {
