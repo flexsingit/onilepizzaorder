@@ -27,14 +27,17 @@
                         <thead>
                             <tr>
                                 <th> Id </th>
-                                <th> User Name </th>
+                                <th> First Name </th>
+                                <th> Last Name </th>
+                                <th> Contact Number </th>
+                                 <th> Address </th>
                                 <th style="text-align:center;"> Status </th>
                                 <th> Created At </th>
                                 <th> Action </th>
                             </tr>
                         </thead>
                         <tbody id="datatable-list-body">
-                            <tr class="empty_row"><td colspan="5" class="text-center"><span class="text-danger"><b>No Record Found</b></span></td></tr>
+                            <tr class="empty_row"><td colspan="8" class="text-center"><span class="text-danger"><b>No Record Found</b></span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -55,14 +58,17 @@
 
         table_id: list_table_id,
         url: "{{\App\Facades\Tools::createdAdminEndUrl('pizza/order/list/ajax')}}",
-        number_of_columns: 5,
+        number_of_columns: 8,
         searching: true,
         columnDefs: [
             {name: 'id', targets: 0},
-            {name: 'user_id', targets: 1},
-            {name: 'status', targets: 2},
-            {name: 'created_at', targets: 3},
-            {name: 'action', targets: 4}
+            {name: 'first_name', targets: 1},
+            {name: 'last_name', targets: 2},
+            {name: 'contact_number', targets: 3},
+            {name: 'address', targets: 4},
+            {name: 'status', targets: 5},
+            {name: 'created_at', targets: 6},
+            {name: 'action', targets: 7}
         ],
         order: [[0, "DESC"]]
     });

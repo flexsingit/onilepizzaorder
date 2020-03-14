@@ -6,13 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PizzaOrder extends Model {
 
-    protected $fillable = ['user_id','status'];
+  protected $fillable = ['first_name','last_name','contact_number','address','status'];
 
 
-  public  function users(){
-
-        return $this->hasOne(\App\Model\User\User::class,'id','user_id');
-
-             }
 
 }

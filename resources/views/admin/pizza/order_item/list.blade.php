@@ -59,11 +59,11 @@
 
         table_id: list_table_id,
         url: "{{\App\Facades\Tools::createdAdminEndUrl('pizza/order/item/list/ajax')}}",
-        number_of_columns: 7,
+        number_of_columns: 9,
         searching: true,
         columnDefs: [
             {name: 'id', targets: 0},
-            {name: 'user_id', targets: 1},
+            {name: 'pizza_order_id', targets: 1},
             {name: 'pizza_category_id', targets: 2},
             {name: 'pizza_type_id', targets: 3},
             {name: 'quantity', targets: 4},
