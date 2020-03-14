@@ -96,7 +96,7 @@
                             </div>
                         </div>
 
-                          <div class="form-group">
+                         <!--  <div class="form-group">
                             <label class="col-sm-2 control-label">Amount</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Amount" name="amount" value="{{old('amount',$model->amount)}}" >
@@ -104,10 +104,7 @@
                                 <span class="input-error" style="color:red">{{$errors->first('amount')}}</span>
                                 @endif
                             </div>
-                        </div>
-                       
-                     
-
+                        </div> -->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-10">
@@ -150,10 +147,10 @@
         // validate signup form on keyup and submit
         $("#form").validate({
             rules: {
-                pizza_order_id: {required: !0},
+               pizza_order_id: {required: !0},
                 pizza_category_id: {required: !0},
                 pizza_type_id: {required: !0},
-                amount: {required: !0},
+              //  amount: {required: !0},
                 quantity: {required: !0},
                 status: {required: !0},
                

@@ -78,7 +78,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Address</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" placeholder="Address" name="address">{{old('address',$model->address)}}</textarea>
+                                <textarea class="form-control" placeholder="Address" name="address" value="{{old('address',$model->address)}}">{{old('address',$model->address)}}</textarea>
 
                                 @if ($errors && $errors->first('address'))
                                 <span class="input-error" style="color:red">{{$errors->first('address')}}</span>

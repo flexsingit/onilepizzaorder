@@ -12,10 +12,18 @@ class Admin extends Model {
 
     const PLACEHOLDER_IMG = 'place_holder.jpg';
 
+ /* *************************
+        Name :   Admin
+        Description : This model class allow access to some action
+        Author : Gyanendra Singh
+       ************************* */
+
+      /* Create foldername to store image here*/
+
     public static function getStorageFolderName() {
         return 'Admin Image';
     }
-
+      /* Get Image */
     public function getImageUrlAttribute() {
 
         if ($this->exists) {
@@ -30,6 +38,8 @@ class Admin extends Model {
         }
         return asset('images/' . self::PLACEHOLDER_IMG);
     }
+
+    /*Uplode Image*/
 
     public function uploadImage() {
         if (!$this->exists) {

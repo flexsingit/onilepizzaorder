@@ -7,11 +7,28 @@ use App\Http\Controllers\Admin\AdminController;
 
 class OrderManagementController extends AdminController {
 
-       /* Pizza Order Functionality */
+      
+
+        /* *************************
+        Name :  Get Pizza Order 
+        Description :Pizza Order allow to render View Page
+        Author : Gyanendra Singh
+        @params : N/A
+        Return :   Render List page 
+    ************************* */
 
     public function getPizzaOrder() {
         return $this->renderView("pizza.order.list");
     }
+
+
+        /* *************************
+        Name :  Pizza Order Ajax
+        Description :Pizza Order allow to access some Pizza Order List of data
+        @params : Yes
+        @params : Yes
+        Return :  responce
+    ************************* */
 
     public function pizzaOrderAjax(Request $request) {
 
@@ -59,10 +76,25 @@ class OrderManagementController extends AdminController {
         return response()->json($json_data, 200);
     }
 
-    public function changeStatusPizzaType ($id) {
+     /* *************************
+        Name :  Pizza Order 
+        Description :Pizza Order allow to change Pizza Order Status
+        @params : Yes
+        Return : status
+    ************************* */
+
+    public function changeStatusPizzaOrder ($id) {
         $object = \App\Model\Order\PizzaOrder::find($id);
         return \App\Facades\Tools::changeStatus($object);
     }
+
+
+    /* *************************
+        Name :  Pizza Order Form
+        Description :Pizza Order Form allow to Create & Update Form
+        @params : Yes
+        Return :  Render form page To Following data
+    ************************* */
 
     public function pizzaOrderForm($id = 0) {
         $this->setPageTitle('Add/Edit  Pizza Order');
@@ -134,17 +166,42 @@ class OrderManagementController extends AdminController {
             $request->flash();
         }  
 
+       $pizza_type = \App\Model\Pizza\PizzaType::pluck('name','id')->all();
+
+         $pizza_category = \App\Model\Pizza\PizzaCategory::pluck('name','id')->all();
+
+      
+
+         $this->page_vars['pizza_type'] = $pizza_type;
+
+        $this->page_vars['pizza_category'] = $pizza_category;
 
         $this->page_vars['model'] = $model;
 
         return $this->renderView('pizza.order.form');
     }
 
-    /*  Order Item Functionality */
+
+        /* *************************
+        Name :  Get Order Item
+        Description :Pizza Order allow to render View Page
+        @params : N/A
+        Return :   Render List page 
+    ************************* */
+   
 
     public function getOrderItem() {
         return $this->renderView("pizza.order_item.list");
     }
+
+
+        /* *************************
+        Name :  Order Item Ajax
+        Description :Pizza Order allow to access some Pizza Order List of data
+        @params : Yes
+        @params : Yes
+        Return :  responce
+    ************************* */
 
     public function orderItemAjax(Request $request) {
 
@@ -177,7 +234,7 @@ class OrderManagementController extends AdminController {
                 $row->pizza_order->first_name,
                 $row->pizza_name->name,
                 $row->pizza_size->name,
-                $row->amount,
+             //   $row->amount,
                 $row->quantity,
                 $status,
                 \App\Facades\Tools::getFormattedDateMonthName($row->created_at),
@@ -195,10 +252,26 @@ class OrderManagementController extends AdminController {
         return response()->json($json_data, 200);
     }
 
+      /* *************************
+        Name :  Order Item
+        Description :Pizza Order allow to change Pizza Order Status
+        @params : Yes
+        Return :  status
+    ************************* */
+
     public function changeStatusOrderItem ($id) {
-        $object = \App\Model\Pizza\PizzaCategory::find($id);
+        $object = \App\Model\Order\OrderItem::find($id);
         return \App\Facades\Tools::changeStatus($object);
     }
+
+
+/* *************************
+        Name :  Order Item Form
+        Description : Order Item Form allow to Create & Update Form
+        @params : Yes
+        Return :  Render form page To Following data
+    ************************* */
+
 
     public function orderItemForm($id = 0) {
         $this->setPageTitle('Add/Edit Order Item');
@@ -230,7 +303,7 @@ class OrderManagementController extends AdminController {
                 'pizza_category_id' => 'required',
                 'pizza_type_id' => 'required',
                 'quantity' => 'required',
-                'amount' => 'required',
+               // 'amount' => 'required',
                 'status' => 'required',
                 
             ];
